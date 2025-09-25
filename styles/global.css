@@ -99,7 +99,6 @@ html, body {
         border-top: 4px solid #4f8cff;
         margin-top: 0;
       }
-
       header {
         background: #222;
         color: #fff;
@@ -107,8 +106,8 @@ html, body {
         text-align: center;
         border-bottom: 4px solid #4f8cff;
       }
-       header p {
-       
+          header p {
+        color: navy; /* Cambia el color del texto a azul marino */
         font-weight: bold; /* Pone el texto en negrita */
         font-size: 1.2em; /* Aumenta el tamaño de la fuente */
         margin-bottom: 10px; /* Agrega un espacio debajo del párrafo */
@@ -133,7 +132,6 @@ html, body {
         margin-top: 2rem;
         margin-bottom: 1rem;
       }
-     
      
       section {
          
