@@ -1,33 +1,103 @@
 ---
+// src/pages/index.astro
+import ThemeToggle from '/src/components/Theme.astro';
 ---
-
-<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Página con Bootstrap en Astro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- ✅ Bootstrap CDN -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GOa6RQJykAixwQJNKIlVnnkqsxO6z7eVZj9XwL/1M8U1j3W2Vu4x3qYq5PbUp3vK"
-      crossorigin="anonymous"
-    />
+    <title>Manuel Blanco - Portfolio</title>
+     <link rel="stylesheet" href="/src/styles/global.css">
+    <style>
+    
+      
+    </style>
   </head>
   <body>
-    <div class="container mt-5">
-      <h1 class="text-primary">Hola desde Bootstrap en Astro</h1>
-      <p class="lead">Esto es una prueba con estilos cargados desde CDN.</p>
-      <button class="btn btn-success">Botón de prueba</button>
-    </div>
+    <header>
+      <a href="https://www.instagram.com/manucho.dev" target="_blank"> <h1> Manuel Blanco </a> </h1>
+      <p>Programador Full Stack | Desarrollo Web | Aplicaciones Modernas | Desarrollo de Videojuegos</p>
+       <!-- Botón tipo switch -->
+     <ThemeToggle />
+     
+    </header>
+    <main>
+            <section>
+        <h2>Sobre mí</h2>
+        <div class="about-container">
+          <img src="/src/images/foto.jpg" alt="Foto de Manuel Blanco" class="about-photo" />
+          <div class="about-text">
+            <p>
+              Egresado de la carrera de Técnico en Programación y Sistemas (UTN), con formación complementaria en 
+              Diseño de Videojuegos en el Instituto Da Vinci. Experiencia en el desarrollo y mejora de algoritmos para la 
+              resolución de problemas del cliente, así como en la implementación y optimización de aplicaciones y 
+              páginas web con acceso a bases de datos. Interés en aplicar mis conocimientos en testing de software, diseño 
+              de experiencias interactivas y aseguramiento de calidad, contribuyendo a la creación de productos digitales 
+              eficientes y funcionales.
+            </p>
+          </div>
+        </div>
+      </section>
+       <section>
+        <h2>Proyectos</h2>
+        <ul>
+          <li>
+            <strong>Gestor de tareas web:</strong> Aplicación para organizar tareas con autenticación y base de datos.
+          </li>
+          <li>
+            <strong>API REST para e-commerce:</strong> Backend robusto para tiendas online con Node.js y MongoDB.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Habilidades</h2>
+        <ul>
+          <li>JavaScript / TypeScript</li>
+          <li>Astro / Node.js</li>
+          <li>SQL</li>
+          <li>HTML / CSS / C++ / C# </li>
+          <li>Git y control de versiones</li>
+          <li>ASP.net / NuGet </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Contacto</h2>
+        <!--<p>Email: <a href="mailto:manuel.blanco.1995@gmail.com">manuel.blanco.1995@gmail.com</a></p> -->
+<div class="email-copy-container">
+  <span id="email-text">manuel.blanco.1995@gmail.com</span>
+  <button id="copy-btn">📋 Copiar </button>
+  <span id="copy-feedback" style="display: none; margin-left: 10px; color: green;">¡Copiado!</span>
+</div>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/manuel-blanco-31bb3b291" target="_blank">https://www.linkedin.com/in/manuelblanco</a></p>
+        <p>GitHub: <a href="https://github.com/Kurcolml" target="_blank">github.com/ManuelBlanco</a></p>
+      </section>
+      
 
-    <!-- Bootstrap JS (opcional) -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-RB15YlRzKXbsJ9EfD2gGq9DkLkPExZclnNdxj5ROKi5v0Zn4JGkz+ePOwcAJEdTb"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+
+<script>
+  // Este bloque se ejecuta solo en el navegador
+  if (typeof window !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const copyBtn = document.getElementById('copy-btn');
+      const emailText = document.getElementById('email-text').innerText;
+      const feedback = document.getElementById('copy-feedback');
+
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(emailText);
+          feedback.style.display = 'inline';
+          setTimeout(() => {
+            feedback.style.display = 'none';
+          }, 2000);
+        } catch (err) {
+          alert('Error al copiar el email.');
+        }
+      });
+    });
+  }
+
+</script>
+
+
+    </main>
+    <footer>
+      <p>&copy; 2025 Manuel Blanco</p>
